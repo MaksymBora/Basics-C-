@@ -1,22 +1,20 @@
 ﻿using System;
 
-namespace LessonTwo
+namespace LessonTwo;
+
+internal class Program
 {
-    class Program
+    private static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            //------------------------- Increment and Decrement. Postfix & prefix -------------------// 
-            // int a = 0;
-            // a++; // postfix - less priority
-            // ++a; // pretfix - more prioriry
+        //------------------------- Increment and Decrement. Postfix & prefix -------------------// 
+        // int a = 0;
+        // a++; // postfix - less priority
+        // ++a; // pretfix - more prioriry
 
-            int a = 1;
+        var a = 1;
 
-            a = ++a * a;
-            
-            Console.WriteLine(a);
-            
-        }
+        a = ++a * a;
+
+        Console.WriteLine(a);
     }
 }

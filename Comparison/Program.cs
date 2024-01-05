@@ -1,16 +1,14 @@
 ﻿using System;
 
-namespace Comparison
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace Comparison;
 
-            int a = 5;
-            int b = 5;
-            
-            Console.WriteLine(a == b);
-        }
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var a = 5;
+        var b = 5;
+
+        Console.WriteLine(a == b);
     }
 }

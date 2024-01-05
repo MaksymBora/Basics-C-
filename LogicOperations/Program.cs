@@ -1,17 +1,26 @@
 ﻿namespace LogicOperations;
 
-class Program
+internal class Program
 {
-    static void Main(string[] arg)
+    public static bool GetTemperature()
     {
-        bool isHightTemperature = true;
-        bool hasNoCooling = true;
+        return true;
+    }
 
-        if (isHightTemperature && hasNoCooling)
-        {
-            Console.WriteLine("Warning, the processor is overheating");
-        }
-        
+    public static bool GetCoolingStatus()
+    {
+        return true;
+    }
+
+
+    private static void Main(string[] arg)
+    {
+        // int fanSpeed = 0;
+        //
+        // bool isHightTemperature = false;
+        //
+        // bool hasNoCooling = fanSpeed <= 0;
+
+        if (GetTemperature() || GetCoolingStatus()) Console.WriteLine("Warning, the processor is overheating");
     }
 }
-// test
