@@ -31,10 +31,10 @@ namespace Task5
                 }
 
                 Console.WriteLine("Please enter '+', '-', '*', '/' ! ");
-                var action = Console.ReadLine();
+                var firstAction = Console.ReadLine();
 
 
-                switch (action)
+                switch (firstAction)
                 {
                     case "+":
                         result = firstValue + secondValue;
