@@ -71,5 +71,3 @@ namespace Task5
         }
     }
 }
-
-//test
