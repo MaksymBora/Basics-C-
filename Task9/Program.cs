@@ -1,72 +1,44 @@
-﻿using System;
-
-namespace Task5
+﻿namespace Task9
 {
     class Program
     {
+        private static readonly StringParser StringParser = new();
+        private static readonly Calculator Calculator = new();
+        
         static void Main(string[] args)
         {
             while (true)
             {
-                Console.Clear();
+                //Parse strings
+                var value1 = GetNew("Please, input value1.", StringParser.GetValue);
+                var action1 = GetNew("Please input first action", StringParser.GetAction);
+                var value2 = GetNew("Please, input value2.", StringParser.GetValue);
+                var action2 = GetNew("Please input second action", StringParser.GetAction);
+                var value3 = GetNew("Please, input value3.", StringParser.GetValue);
+                
+                //Calc
+                var calcResult = Calculator.ThreeValuesCalc(value1, value2, value3, action1, action2);
+                Console.WriteLine($"Granulate! Your result is {calcResult}");
+                
+                //Continue
+                Console.WriteLine("Please enter any key to continue");
+                Console.ReadKey();
+            }
+        }
 
-                double firstValue, secondValue, result;
-
-                try
-                {
-                    Console.WriteLine("Please enter value 1! ");
-                    firstValue = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Please enter value 2! ");
-                    secondValue = double.Parse(Console.ReadLine());
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Error! Unknown type of numbers!");
-
-                    Console.WriteLine("Press Enter to continue or press CTRL+C to stop the Program! ");
-                    Console.ReadLine();
-
-                    continue;
-                }
-
-                Console.WriteLine("Please enter '+', '-', '*', '/' ! ");
-                var firstAction = Console.ReadLine();
-
-
-                switch (firstAction)
-                {
-                    case "+":
-                        result = firstValue + secondValue;
-                        Console.WriteLine("The result is >>> " + result);
-                        break;
-                    case "-":
-                        result = firstValue - secondValue;
-                        Console.WriteLine("The result is >>> " + result);
-                        break;
-                    case "/":
-                        if (secondValue == 0)
-                        {
-                            Console.WriteLine(0);
-                        }
-                        else
-                        {
-                            result = firstValue / secondValue;
-                            Console.WriteLine("The result is >>> " + result);
-                        }
-
-                        break;
-                    case "*":
-                        result = firstValue * secondValue;
-                        Console.WriteLine("The result is >>> " + result);
-                        break;
-                    default:
-                        Console.WriteLine("Unknown operation!");
-                        break;
-                }
-
-                Console.WriteLine("Press Enter to continue or press CTRL+C to stop the Program! ");
-                Console.ReadLine();
+        private static T GetNew<T>(string requestMessage, Func<string?, T> func)
+        {
+            try
+            {
+                Console.WriteLine(requestMessage);
+                var str = Console.ReadLine();
+                
+                return func(str);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return GetNew(requestMessage, func);
             }
         }
     }
