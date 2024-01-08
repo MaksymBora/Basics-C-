@@ -5,8 +5,6 @@ public class Calculator
     public double ThreeValuesCalc(double value1, double value2, double value3, 
         StringParser.Action action1, StringParser.Action action2)
     {
-        var isPriorityAction1 = IsPriorityAction(action1);
-        var isPriorityAction2 = IsPriorityAction(action2);
         
         if (!IsPriorityAction(action1) && IsPriorityAction(action2))
             return TwoValuesCalc(value1, TwoValuesCalc(value2, value3, action2), action1);
