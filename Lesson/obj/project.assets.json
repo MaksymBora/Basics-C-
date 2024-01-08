@@ -8,26 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Praktikant\\.nuget\\packages\\": {}
+    "/Users/maks/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Praktikant\\Documents\\Coding\\Lesson\\Lesson\\Lesson.csproj",
+      "projectUniqueName": "/Users/maks/Documents/IT/csharp/Basics-C-/Lesson/Lesson.csproj",
       "projectName": "Lesson",
-      "projectPath": "C:\\Users\\Praktikant\\Documents\\Coding\\Lesson\\Lesson\\Lesson.csproj",
-      "packagesPath": "C:\\Users\\Praktikant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Praktikant\\Documents\\Coding\\Lesson\\Lesson\\obj\\",
+      "projectPath": "/Users/maks/Documents/IT/csharp/Basics-C-/Lesson/Lesson.csproj",
+      "packagesPath": "/Users/maks/.nuget/packages/",
+      "outputPath": "/Users/maks/Documents/IT/csharp/Basics-C-/Lesson/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Praktikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/maks/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.404/RuntimeIdentifierGraph.json"
       }
     }
   }
