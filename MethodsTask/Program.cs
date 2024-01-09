@@ -4,36 +4,50 @@ namespace Methods
 {
     class Program
     {
-
-
-        static void PrintLine(string str, uint value)
+        static int IndexOf(int[] arr, int value)
         {
-            for (int i = 0; i < value; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                Console.Write(str);
+                if (arr[i] == value)
+                {
+                    return i;
+                }
             }
+
+            return -1;
         }
 
-        // static void SearchElement(string str, string element)
-        // {
-        //     return Array.Find(str, i => i == element);
-        // }
-        
+        static int[] RandomNmbers(int arrSize, int minValue, int maxValue)
+        {
+            int[] myArray = new int[arrSize];
+            Random random = new Random();
+            
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                myArray[i] = random.Next(minValue, maxValue);
+            }
+
+            return myArray;
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a symbol!");
-            string str = Console.ReadLine();
-            Console.WriteLine("Enter a value!");
-            uint value = uint.Parse(Console.ReadLine());
-            
-            PrintLine(str, value);
+            Console.WriteLine("Enter index value to find in Array >>>>>: ");
+            int value = int.Parse(Console.ReadLine());
+          
 
-            // string str = Console.ReadLine();
-            // string element = Console.ReadLine();
-            //
-            // SearchElement(str, element);
+            int[] myArray = RandomNmbers(10, 0, 15 );
+
+            int result = IndexOf(myArray, value);
+
+            string consoleResult = result == -1
+                ? $"Value {value} is not existing in Array!"
+                : $"Index of value {value} is {result} !";
+
+            Console.WriteLine(consoleResult);
+
+       
 
         }
-        
     }
 }

@@ -14,7 +14,6 @@ namespace Task6
             while (sideSix != 10)
             {
                 int droppedNumbers = randomNumbers.Next(1, 7);
-                
                 Console.WriteLine(droppedNumbers);
                 
                 if (droppedNumbers == 6)
@@ -25,7 +24,6 @@ namespace Task6
                 if (sideSix == 10)
                 {
                     Console.WriteLine("Side 6 dropped 10 times!");
-                    break;
                 }
             }
         }

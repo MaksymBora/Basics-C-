@@ -89,7 +89,6 @@ internal class Program
         int result = myArray.Where(i => i < 0).FirstOrDefault();
         
         Console.WriteLine(result);
-
-
+        
     }
 } 

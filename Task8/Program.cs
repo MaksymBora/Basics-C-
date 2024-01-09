@@ -18,7 +18,7 @@ namespace Task8
                 int droppedSecondCubeNumbers = randomNumbers.Next(1, 7);
                 int totalScore = droppedFirstCubeNumbers + droppedSecondCubeNumbers;
                 
-                Console.WriteLine(totalScore);
+                
                 score[totalScore - 1]++;
             }
 

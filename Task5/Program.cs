@@ -27,7 +27,7 @@ namespace Task5
             }
 
 
-            // Console.WriteLine(string.Join(", ", sides));
+           
         }
     }
 }
