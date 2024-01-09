@@ -24,4 +24,9 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Task9Refactored\Task9Refactored.csproj" />
+      <ProjectReference Include="..\Task9\Task9.csproj" />
+    </ItemGroup>
+
 </Project>

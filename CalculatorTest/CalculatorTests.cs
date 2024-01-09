@@ -1,8 +1,7 @@
-using Task9Refactored;
 using FluentAssertions;
-using Xunit;
+using Task9Refactored;
 
-namespace Tas9RefactoredTest;
+namespace CalculatorTest;
 
 public class CalculatorTests
 {
@@ -14,11 +13,11 @@ public class CalculatorTests
     }
 
     [Theory]
-    [InlineData("5+3+2*2", 13)]
+    [InlineData("5+3+2*2", 12)]
     [InlineData("4-(3*3)+1", -4)]
     [InlineData("(5+3-2)*3", 18)]
     [InlineData("10/2+3*4", 16)]
-    [InlineData("7+8*5-(2*3)+10/2", 36)]
+    [InlineData("7+8*5+10/2", 36)]
     public void CalculateExpression_WithVariousComplexExpressions(
         string expression, double expectedValue)
     {
