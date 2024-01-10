@@ -1,37 +1,53 @@
-﻿namespace Task1;
-
-internal class Program
+﻿namespace Task10
 {
-    private static void Main(string[] args)
+    internal class Program
     {
-        try
+        private static void Main(string[] args)
         {
-            string[] phoneNumbers =
-            {
-                "FAKULTAETFIW",
-                "PIZZARUS",
-                "GL00M",
-                "FR?ST",
-                "STADTVERWALTUNG"
-            };
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string filename = Path.Combine(currentDirectory, "phone_numbers.txt");
 
-            foreach (string phoneNumber in phoneNumbers)
+            List<string> convertedNumbers = ConvertFileToNumbers(filename);
+
+            foreach (string number in convertedNumbers)
             {
-                try
+                Console.WriteLine($"Converted number: {number}");
+            }
+            
+            // Console.WriteLine($"Current directory: {Environment.CurrentDirectory}");
+        }
+
+        private static List<string> ConvertFileToNumbers(string filename)
+        {
+            var numbersList = new List<string>();
+
+            try
+            {
+                string[] lines = File.ReadAllLines(filename);
+
+                foreach (string line in lines)
                 {
-                    string convertedNumber = PhoneNumberConverter.ConvertToNumbers(phoneNumber);
-                    Console.WriteLine($"The converted number for '{phoneNumber}' is '{convertedNumber}'");
-                }
-                catch (IllegalPhoneNumberException e)
-                {
-                    Console.WriteLine(e.Message);
-                    // Console.WriteLine($"Invalid character in phone number: '{phoneNumber}'");
+                    try
+                    {
+                        string convertedNumber = PhoneNumberConverter.ConvertToNumbers(line);
+                        numbersList.Add(convertedNumber);
+                    }
+                    catch (IllegalPhoneNumberException e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return numbersList;
         }
     }
 }

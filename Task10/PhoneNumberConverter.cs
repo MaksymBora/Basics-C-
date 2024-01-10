@@ -1,4 +1,4 @@
-﻿namespace Task1;
+﻿namespace Task10;
 
 public class IllegalPhoneNumberException : Exception
 {
@@ -9,14 +9,14 @@ public class IllegalPhoneNumberException : Exception
 
 public class PhoneNumberConverter
 {
-    private static readonly char[] validChars =
+    private static readonly char[] ValidChars =
     {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
         'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
         'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     };
 
-    private static readonly char[] mappedDigits =
+    private static readonly char[] MappedDigits =
     {
         '2', '2', '2', '3', '3', '3', '4', '4', '4',
         '5', '5', '5', '6', '6', '6', '7', '7', '7',
@@ -30,10 +30,10 @@ public class PhoneNumberConverter
         foreach (char c in phoneNumber)
         {
             char upperC = char.ToUpper(c);
-            if (Array.IndexOf(validChars, upperC) != -1)
+            if (Array.IndexOf(ValidChars, upperC) != -1)
             {
-                int index = Array.IndexOf(validChars, upperC);
-                result += mappedDigits[index];
+                int index = Array.IndexOf(ValidChars, upperC);
+                result += MappedDigits[index];
             }
             else
             {
