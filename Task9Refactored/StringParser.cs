@@ -1,9 +1,12 @@
-﻿namespace Task9Refactored;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-
+namespace Task9Refactored
+{
     public class StringParser
     {
-        public List<string> ConvertToRPN(string expression)
+        public List<string> ConvertToRPN(string? expression)
         {
             var output = new List<string>();
             var stack = new Stack<char>();
@@ -11,11 +14,13 @@
 
             expression = expression.Replace(" ", "");
 
-            foreach (char c in expression)
+            for (int i = 0; i < expression.Length; i++)
             {
+                char c = expression[i];
+
                 if (char.IsDigit(c) || c == '.')
                 {
-                    int numStart = expression.IndexOf(c);
+                    int numStart = i;
                     int numEnd = numStart + 1;
                     while (numEnd < expression.Length &&
                            (char.IsDigit(expression[numEnd]) || expression[numEnd] == '.'))
@@ -24,6 +29,7 @@
                     }
 
                     output.Add(expression.Substring(numStart, numEnd - numStart));
+                    i = numEnd - 1;
                 }
                 else if (c == '(')
                 {
@@ -43,10 +49,10 @@
 
                     stack.Pop();
                 }
-                else if (c == '+' || c == '-' || c == '*' || c == '/')
+                else if (precedence.TryGetValue(c, out var value))
                 {
                     while (stack.Count > 0 && precedence.ContainsKey(stack.Peek()) &&
-                           precedence[c] <= precedence[stack.Peek()])
+                           value <= precedence[stack.Peek()])
                     {
                         output.Add(stack.Pop().ToString());
                     }
@@ -82,3 +88,4 @@
             return token == "+" || token == "-" || token == "*" || token == "/";
         }
     }
+}

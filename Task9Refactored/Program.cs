@@ -9,7 +9,7 @@ namespace Task9Refactored
             Calculator calculator = new Calculator(); 
 
             Console.WriteLine("Enter expression:");
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
             try
             {

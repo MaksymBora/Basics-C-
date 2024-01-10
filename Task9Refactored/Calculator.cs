@@ -4,7 +4,7 @@
     {
         private readonly StringParser _parser = new StringParser();
 
-        public double CalculateExpression(string expression)
+        public double CalculateExpression(string? expression)
         {
             var tokens = _parser.ConvertToRPN(expression);
             var result = EvaluateRPN(tokens);
